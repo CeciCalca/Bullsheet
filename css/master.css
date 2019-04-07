@@ -46,12 +46,17 @@ body{
 ._jumbop{
   color: #E41041;
 }
+
+/* ------------------------- */
+/* SECTION LOGIN */
+/* ------------------------- */
+
 ._login{
 	background-image: linear-gradient(to right, #051937, #39235a, #7b1c69, #bb005f, #eb123d);
-	height:60vh;
+	height:70vh;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: center
 }
 
 
@@ -120,24 +125,39 @@ a:hover{
 
 ._seccion-titulo{
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: auto;
 }
 
 ._seccion-titulo h2{
   font-family: 'Playball',cursive;
   padding: 20px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 ._articulo-titulo-texto{
-  float: left;
-  overflow: hidden;
+display: flex;
+flex-wrap:  wrap;
+align-content: center;
+}
 
+._textoArticulo{
+  font-size: 1em;
   text-align: center;
+}
+._contenedorImagen{
+  padding: 25px;
+  width: 100%;
+}
+._imagenTitulo{
+  width:100%;
+  padding: 30px;
+
 }
 
 .articulo-titulo-imagen{
