@@ -46,10 +46,6 @@ body{
 ._jumbop{
   color: #E41041;
 }
-/* ------------------------- */
-/* LOGIN */
-/* ------------------------- */
-
 ._login{
 	background-image: linear-gradient(to right, #051937, #39235a, #7b1c69, #bb005f, #eb123d);
 	height:60vh;
@@ -121,58 +117,42 @@ a:hover{
 /* ------------------------- */
 /* SECTION TÍTULO */
 /* ------------------------- */
-._contenedor-section1{
-	background: white;
-
-}
 
 ._seccion-titulo{
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
-  align-items: center;  
+  align-items: center;
+  justify-content: center;
   position: relative;
-  flex-wrap: wrap;
+  width: 100%;
   overflow: hidden;
-  
-  
-}
-._seccion-titulo h3{
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	text-align: left;
 }
 
 ._seccion-titulo h2{
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;	
-    font-family: 'Playball',cursive;
-	padding: 20px;
-	position: relative;
-	margin: -3%;
-	
+  font-family: 'Playball',cursive;
+  padding: 20px;
 }
 
 ._articulo-titulo-texto{
+  float: left;
+  overflow: hidden;
+
   text-align: center;
-  width: 35vw;
 }
 
 .articulo-titulo-imagen{
-  width: 35vw;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
   position: relative;
-  padding: 5vh;
-  
-}
-._img-section1{
-	max-width: 100%;
-	height: auto;
-	padding: 20px;
+  overflow: hidden;
+  background-image: url(../img/img2.jpg);
 }
 
-
+._contenedor-seccion-titulo{
+  background:linear-gradient(to right, #051937, #39235a, #7b1c69, #bb005f, #eb123d);
+}
 
 
 
@@ -312,50 +292,3 @@ a:hover{
 	from { opacity: 0; }
 	to { opacity: 1; }
 }
-
-
-/* Small devices (landscape phones, 576px and up)*/
-@media (max-width: 580px) {
-		._img-section1 {
-	 	  border-radius: 50%;
-	}
-	._articulo-titulo-texto{
-		width: 95%;
-		text-align: left;
-	}
-	._articulo-titulo-imagen {
-		
-		height: auto;
-		position: relative;
-		overflow: hidden;
-		border-radius: 50%;
-	}
-	
-	._img-section1{
-		display: inline;
-		margin: 0 auto;
-		height: 100%;
-		width: auto;
-	}
-	._contenedor-login{
-		height: 50vh;
-	}
-	._contenedor-login {
-			padding: 0px;	
-	}
-	
-
-}
-
-/*// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) { ... }*/
-
-/*// Large devices (desktops, 992px and up)*/
-@media (max-width: 992px) { 
-	._articulo-titulo-texto{
-		width: 70%;
-		text-align: left;
-	}
-}
-/*// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }*/
