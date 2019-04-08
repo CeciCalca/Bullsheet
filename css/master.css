@@ -126,6 +126,7 @@ a:hover{
 ._seccion-titulo{
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   width: 80%;
   margin: auto;
 }
