@@ -47,6 +47,7 @@ body{
   color: #E41041;
 }
 
+
 /* ------------------------- */
 /* SECTION LOGIN */
 /* ------------------------- */
@@ -81,7 +82,7 @@ body{
 	color: rgb(105, 105, 105);
 	padding: 20px;
 	text-align: center;
-	width: 600px;
+	min-width: 40vw;
 
 }
 ._contenedor-login form .contenedor-pass{
@@ -101,11 +102,11 @@ body{
 	cursor: pointer;
 	transition: .3s ease all;
 }
- a{
+._contenedor-login a{
 	list-style: none;
 	color: rgb(105, 105, 105);
 }
-a:hover{
+._contenedor-login a:hover{
 	text-decoration: underline;
 	color: rgb(105, 105, 105);
 }
@@ -128,7 +129,8 @@ a:hover{
   flex-wrap: wrap;
   align-items: center;
   width: 80%;
-  margin: auto;
+  margin: 20px auto;
+  justify-content: center;
 }
 
 ._seccion-titulo h2{
@@ -145,6 +147,7 @@ a:hover{
 display: flex;
 flex-wrap:  wrap;
 align-content: center;
+justify-content: center;
 }
 
 ._textoArticulo{
@@ -157,7 +160,6 @@ align-content: center;
 }
 ._imagenTitulo{
   width:100%;
-  padding: 30px;
 
 }
 
@@ -175,8 +177,80 @@ align-content: center;
   background:linear-gradient(to right, #051937, #39235a, #7b1c69, #bb005f, #eb123d);
 }
 
+/* ------------------------- */
+/* FAQS */
+/* ------------------------- */
 
 
+.contenedor-foto3{
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+
+}
+.gotop{
+	position:	fixed;
+	bottom: 50px;
+	right: 50px;
+	transform: scale(3);
+	color:  rgb(105, 105, 105);
+  z-index: 1;
+}
+
+
+/* ------------------------- */
+/* footer */
+/* ------------------------- */
+
+
+footer{
+background:linear-gradient(to right, #051937, #39235a, #7b1c69, #bb005f, #eb123d);
+color: #fff;
+font-family: 'Oswald', sans-serif;
+margin-top: 30px;
+}
+
+footer .pie2{
+  font-family: 'Playball', cursive;
+  color: #ffffff;
+  font-size: 2em;
+}
+
+footer .pie2 h5{
+  font-family: 'Playball', cursive;
+  color: #ffffff;
+  font-size: 2em;
+}
+
+footer .pie3 h5{
+  font-family: 'Oswald', sans-serif;
+}
+
+a{
+  color: white;
+  font-size: 1rem;
+}
+
+a:hover{
+	text-decoration: none;
+	color: #F9EFD5;
+}
+
+.page-footer li{
+	color: white;
+	list-style: none;
+
+}
+
+.page-footer li:hover{
+	text-decoration: underline;
+	color: rgb(105, 105, 105);
+}
 /* ------------------------- */
 /* POPUP */
 /* ------------------------- */

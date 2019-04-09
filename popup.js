@@ -1,5 +1,6 @@
 var btnAbrirPopup = document.getElementById('btn-abrir-popup'),
 	abrirPopup= document.getElementById('abrir-popup'),
+	abrirPopupFooter= document.getElementById('abrir-popup-footer'),
 	overlay = document.getElementById('overlay'),
 	popup = document.getElementById('popup'),
 	btnCerrarPopup = document.getElementById('btn-cerrar-popup');
@@ -11,6 +12,11 @@ btnAbrirPopup.addEventListener('click', function(){
 });
 
 abrirPopup.addEventListener('click', function(){
+	overlay.classList.add('active');
+	popup.classList.add('active');
+});
+
+abrirPopupFooter.addEventListener('click', function(){
 	overlay.classList.add('active');
 	popup.classList.add('active');
 });
