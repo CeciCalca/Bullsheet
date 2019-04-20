@@ -1,23 +1,9 @@
-/*font-family: 'Playball', cursive;
-font-family: 'Oswald', sans-serif;*/
 
-*{
-  box-sizing: border-box;
-  padding: 0;
-}
-
-body{
-  font-family: 'Oswald', sans-serif;
-}
-
-._bgdegree{
-  background-image: linear-gradient(to right, #051937, #39235a, #7b1c69, #bb005f, #eb123d);
-
-}
-
+@import "body.css";
 @import "header.css";
 @import "login.css";
 @import "titulo.css";
 @import "faqs.css";
 @import "footer.css";
 @import "popup.css";
+@import "perfil.css";

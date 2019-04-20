@@ -1,0 +1,43 @@
+._imgAvatar{
+   width: 60px;
+   border-radius: 30%;
+}
+
+._bgdegree{
+  background-image: linear-gradient(to right, #051937, #39235a, #7b1c69, #bb005f, #eb123d);
+
+}
+
+._logo{
+  font-family: 'Playball', cursive;
+  color: #ffffff;
+  font-size: 2em;
+}
+
+
+._bghomeperfil{
+  background-image: url(../img/img4.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+._jumbotext{
+  width: 70%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 25px;
+  padding-right: 0;
+  margin-left: 0;
+  background-color: rgba(7, 24, 54, 0.74);
+}
+
+._jumbotitle{
+  font-size: 3em;
+  color: #F9EFD4;
+}
+
+._jumbop{
+  color: #E41041;
+}
