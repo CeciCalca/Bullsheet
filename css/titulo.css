@@ -1,0 +1,56 @@
+/* ------------------------- */
+/* SECTION TÍTULO */
+/* ------------------------- */
+
+._seccion-titulo{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 80%;
+  margin: 20px auto;
+  justify-content: center;
+}
+
+._seccion-titulo h2{
+  font-family: 'Playball',cursive;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+._articulo-titulo-texto{
+display: flex;
+flex-wrap:  wrap;
+align-content: center;
+justify-content: center;
+}
+
+._textoArticulo{
+  font-size: 1em;
+  text-align: center;
+}
+._contenedorImagen{
+  padding: 25px;
+  width: 100%;
+}
+._imagenTitulo{
+  width:100%;
+
+}
+
+.articulo-titulo-imagen{
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-image: url(../img/img2.jpg);
+}
+
+._contenedor-seccion-titulo{
+  background:linear-gradient(to right, #051937, #39235a, #7b1c69, #bb005f, #eb123d);
+}

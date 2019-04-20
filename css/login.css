@@ -1,0 +1,71 @@
+
+/* ------------------------- */
+/* SECTION LOGIN */
+/* ------------------------- */
+
+._login{
+	background-image: linear-gradient(to right, #051937, #39235a, #7b1c69, #bb005f, #eb123d);
+	height:70vh;
+	display: flex;
+	justify-content: center;
+	align-items: center
+}
+
+
+._contenedor-login form .contenedor-inputs-login input {
+	width: 100%;
+	margin-bottom: 20px;
+	height: 52px;
+	font-size: 18px;
+	line-height: 52px;
+	text-align: center;
+	border: 1px solid #BBBBBB;
+	border-radius: 3px;
+}
+
+._contenedor-login {
+	margin: 0 auto;
+	background: #F8F8F8;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 600;
+	color: rgb(105, 105, 105);
+	padding: 20px;
+	text-align: center;
+	min-width: 40vw;
+
+}
+._contenedor-login form .contenedor-pass{
+	display: flex;
+	justify-content: space-between;
+}
+._contenedor-login form .btn-submit-login {
+	padding: 0 20px;
+	height: 40px;
+	line-height: 40px;
+	border: none;
+	color: #fff;
+	background: rgb(105, 105, 105);
+	border-radius: 3px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	cursor: pointer;
+	transition: .3s ease all;
+}
+._contenedor-login a{
+	list-style: none;
+	color: rgb(105, 105, 105);
+}
+._contenedor-login a:hover{
+	text-decoration: underline;
+	color: rgb(105, 105, 105);
+}
+
+._contenedor-login form .btn-submit-login:hover {
+	background:linear-gradient(to right, #051937, #39235a, #7b1c69, #bb005f, #eb123d);
+}
+
+.abrir-Popup:hover{
+	text-decoration: underline;
+}

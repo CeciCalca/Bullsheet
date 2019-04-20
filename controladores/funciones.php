@@ -32,7 +32,7 @@ function validar($datos,$bandera){
     if(isset($datos["repassword"])){
         $repassword = trim($datos["repassword"]);
     }
-    
+
     if(empty($password)){
         $errores["password"]= "El campo password no no puede quedar en blanco";
     }elseif (strlen($password)<6) {
@@ -43,8 +43,8 @@ function validar($datos,$bandera){
             $errores["repassword"]="Las contraseñas no coinciden";
         }
     }
-    
-    
+
+
     if($bandera == "registro"){
         if($_FILES["avatar"]["error"]!=0){
             $errores["avatar"]="Error debe subir imagen";
@@ -54,7 +54,7 @@ function validar($datos,$bandera){
         if($ext != "png" && $ext != "jpg"){
             $errores["avatar"]="Debe seleccionar archivo png ó jpg";
         }
-    
+
     }
 
     return $errores;
@@ -100,7 +100,7 @@ function guardar($usuario){
 function buscarEmail($email){
 
     $usuarios = abrirBaseDatos();
-    
+
     foreach ($usuarios as  $usuario) {
         if($email === $usuario["email"]){
             return $usuario;
@@ -112,12 +112,15 @@ function buscarEmail($email){
 
 function abrirBaseDatos(){
     $baseDatosJson= file_get_contents("usuarios.json");
+
     $baseDatosJson = explode(PHP_EOL,$baseDatosJson);
     array_pop($baseDatosJson);
+
     foreach ($baseDatosJson as  $usuarios) {
-        $arrayUsuarios[]= json_decode($usuarios,true);
+      $arrayUsuarios[]= json_decode($usuarios,true);
     }
     return $arrayUsuarios;
+
 }
 function seteoUsuario($user,$dato){
     $_SESSION["nombre"]= $user["nombre"];
@@ -140,5 +143,5 @@ function validarUsuario(){
     }else{
         return false;
     }
-    
+
 }
