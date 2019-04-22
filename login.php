@@ -38,7 +38,7 @@ include_once("controladores/funciones.php");
         </div>
         <div class="contenedor-pass">
           <div class="recordar">
-          <input name="recordar-pass" type="checkbox" id="recordarme" value="recordar-pass">
+          <input name="recordar" type="checkbox" id="recordar" value="recordar">
           <label for="recordarme">Recordarme</label>
          </div>
           <a href="">Olvide mi Contraseña</a>

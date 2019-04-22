@@ -1,0 +1,19 @@
+.contenedor-foto3{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+  
+  }
+  .gotop{
+      position:	fixed;
+      bottom: 50px;
+      right: 50px;
+      transform: scale(3);
+      color:  rgb(105, 105, 105);
+    z-index: 1;
+  }

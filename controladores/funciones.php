@@ -26,7 +26,7 @@ function validar($datos,$bandera){
 
     $email = trim($datos["email"]);
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        $errores["email"]="Email invalido !!!!!";
+        $errores["email"]="Email invalido!";
     }
     $password= trim($datos["password"]);
     if(isset($datos["repassword"])){
@@ -34,7 +34,7 @@ function validar($datos,$bandera){
     }
 
     if(empty($password)){
-        $errores["password"]= "El campo password no no puede quedar en blanco";
+        $errores["password"]= "El campo password no puede quedar en blanco";
     }elseif (strlen($password)<6) {
         $errores["password"]="La contraseña debe tener como mínimo 6 caracteres";
     }
@@ -129,8 +129,8 @@ function seteoUsuario($user,$dato){
     $_SESSION["perfil"]= $user["perfil"];
     $_SESSION["avatar"]= $user["avatar"];
     if(isset($dato["recordar"]) ){
-        setcookie("email",$dato["email"],time()+3600);
-        setcookie("password",$dato["password"],time()+3600);
+        setcookie("email",$dato["email"],time()+30);
+        setcookie("password",$dato["password"],time()+30);
     }
 }
 
