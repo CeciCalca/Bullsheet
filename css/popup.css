@@ -4,7 +4,7 @@
 /* ------------------------- */
 
 .overlay {
-	background: rgba(0,0,0,.3);
+	background:linear-gradient(to right, #051937, #39235a, #7b1c69, #bb005f, #eb123d);
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -13,7 +13,7 @@
 	align-items: center;
 	justify-content: center;
 	display: flex;
-	visibility: hidden;
+	visibility: visible;
 }
 
 .overlay.active {
@@ -31,7 +31,7 @@
 
 	transition: .3s ease all;
 	transform: scale(0.7);
-	opacity: 0;
+	opacity: 1;
 }
 
 .popup .btn-cerrar-popup {
@@ -52,18 +52,18 @@
 	font-size: 36px;
 	font-weight: 600;
 	margin-bottom: 10px;
-	opacity: 0;
+	opacity:1;
 }
 
 .popup h4 {
 	font-size: 26px;
 	font-weight: 300;
 	margin-bottom: 40px;
-	opacity: 0;
+	opacity: 1;
 }
 
 .popup form .contenedor-inputs {
-	opacity: 0;
+	opacity: 1;
 }
 
 .popup form .contenedor-inputs input {
@@ -98,11 +98,29 @@
 .popup form .btn-submit:hover {
 	background:linear-gradient(to right, #051937, #39235a, #7b1c69, #bb005f, #eb123d);
 }
+._logo{
+	font-family: 'Playball', cursive;
+	color: #ffffff;
+	font-size: 2em;
+	position: fixed;
+	margin-top: 10px;	
+	margin-left: 15px;
+	z-index: 1000;
+	list-style: none;
+	text-decoration:none;
+  }
+  ._logo:hover{
+	text-decoration:none;
+	color:  rgb(105, 105, 105);
+  }
+  li{
+	  list-style: none;
+}
 
 /* ------------------------- */
 /* ANIMACIONES */
 /* ------------------------- */
-.popup.active {	transform: scale(1); opacity: 1; }
+/*.popup.active {	transform: scale(1); opacity: 1; }
 .popup.active h3 { animation: entradaTitulo .8s ease .5s forwards; }
 .popup.active h4 { animation: entradaSubtitulo .8s ease .5s forwards; }
 .popup.active .contenedor-inputs { animation: entradaInputs 1s linear 1s forwards; }
@@ -134,4 +152,4 @@
 @keyframes entradaInputs {
 	from { opacity: 0; }
 	to { opacity: 1; }
-}
+}*/

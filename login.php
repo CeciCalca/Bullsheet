@@ -1,11 +1,10 @@
-
 <?php
 include_once("controladores/funciones.php");
-  if($_POST){
+if($_POST){
+  
   $errores= validar($_POST,"login");
   if(count($errores)==0){
     $usuario = buscarEmail($_POST["email"]);
-
     if($usuario == null){
       $errores["email"]="Usuario no existe";
     }else{
@@ -17,13 +16,14 @@ include_once("controladores/funciones.php");
           header("location: perfil.php");
           exit;
         }else{
-          header("location: #btn-abrir-popup");
+          header("location: registro.php");
           exit;
         }
-      }
-    }
+      }      
+    }    
   }
-} ?>
+}
+?>
 
 <!--Sección de LogIn-->
 
@@ -45,7 +45,7 @@ include_once("controladores/funciones.php");
         </div>
         <br>
         <input type="submit" name="login" class="btn-submit-login" value="Login">
-        <p>Si no tenés cuenta registrate <a id="abrir-popup"class="linkpopup abrir-Popup" href="#reg"> Acá!</a></p>
+        <p>Si no tenés cuenta registrate <a id="abrir-popup"class="linkpopup abrir-Popup" href="registro.php"> Acá!</a></p>
       </form>
       <?php
         if(isset($errores)):?>

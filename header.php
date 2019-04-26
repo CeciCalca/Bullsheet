@@ -1,7 +1,7 @@
 <!--Header y NavBar-->
   <header>
     <nav id="nav" class="navbar navbar-expand-lg navbar-dark _bgdegree">
-      <a class="navbar-brand _logo" href="#">BullSheet</a>
+      <a class="navbar-brand _logo" href="index.php">BullSheet</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -14,7 +14,7 @@
             <a class="nav-link" href="#faq">PREGUNTAS FRECUENTES</a>
           </li>
           <li class="nav-item ">
-            <a  id="btn-abrir-popup"class="nav-link btn-abrir-popup" href="#reg">REGISTRARSE</a>
+            <a  id="btn-abrir-popup"class="nav-link btn-abrir-popup" href="registro.php">REGISTRARSE</a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="#login">LOGIN</a>

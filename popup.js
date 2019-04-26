@@ -27,11 +27,6 @@ btnCerrarPopup.addEventListener('click', function(e){
 	popup.classList.remove('active');
 });
 
-if($errores > 0)(function(e){
-	e.preventDefault();
-	overlay.classList.add('active');
-	popup.classList.add('active');
-});
 
 
 

@@ -20,7 +20,7 @@
       include_once("login.php");
       include_once("faq.php");
       include_once("footer.php");
-      include_once("registro.php");
+      
     ?>
     
   </body>

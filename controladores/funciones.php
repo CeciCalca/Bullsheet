@@ -54,9 +54,7 @@ function validar($datos,$bandera){
         if($ext != "png" && $ext != "jpg"){
             $errores["avatar"]="Debe seleccionar archivo png ó jpg";
         }
-
     }
-
     return $errores;
 }
 

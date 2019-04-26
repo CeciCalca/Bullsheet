@@ -1,6 +1,6 @@
 ._imgAvatar{
    width: 60px;
-   border-radius: 30%;
+   border-radius: 50%;
 }
 
 ._bgdegree{
@@ -40,4 +40,7 @@
 
 ._jumbop{
   color: #E41041;
+}
+body{
+  font-family: 'Oswald', sans-serif;
 }

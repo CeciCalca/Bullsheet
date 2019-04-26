@@ -1,7 +1,7 @@
 <?php
 include_once("controladores/funciones.php");
 if(!isset($_SESSION["email"])) {
-    header("location:#reg");
+    header("location:registro.php");
     exit;
 }
 
@@ -15,6 +15,7 @@ if(!isset($_SESSION["email"])) {
     <title>Bullsheet perfil</title>
     <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700|Playball" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700|Playball" rel="stylesheet">
     <link rel="stylesheet" href="css/perfil.css">
 </head>
 <body>

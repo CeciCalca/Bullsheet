@@ -22,7 +22,7 @@
               <a href="#login">Login</a>
             </li>
             <li>
-              <a id="abrir-popup-footer" href="#reg">Registrarse</a>
+              <a id="abrir-popup-footer" href="registro.php">Registrarse</a>
             </li>
           </ul>
 
