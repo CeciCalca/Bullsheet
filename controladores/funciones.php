@@ -120,6 +120,7 @@ function abrirBaseDatos(){
     return $arrayUsuarios;
 
 }
+
 function seteoUsuario($user,$dato){
     $_SESSION["nombre"]= $user["nombre"];
     $_SESSION["apellido"]= $user["apellido"];

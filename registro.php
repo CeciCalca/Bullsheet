@@ -3,11 +3,16 @@ include_once("controladores/funciones.php");
 if ($_POST){
   $errores=validar($_POST,"registro");
   if(count($errores)==0){
+    $usuario = buscarEmail($_POST["email"]);
+    if($usuario !== null){
+      $errores["email"]="El usuario ya existe";
+    }else{
     $avatar = armarAvatar($_FILES);
     $registro = armarRegistro($_POST,$avatar);
     guardar($registro);
     header("location:index.php");
     exit;
+    }
   }
 }
  ?>
