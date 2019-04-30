@@ -1,17 +1,15 @@
 <?php
 include_once("controladores/funciones.php");
-if ($_POST){
-  $errores=validar($_POST,"registro");
+if($_POST){
+  $errores=validar($_POST,"olvide");
   if(count($errores)==0){
     $usuario = buscarEmail($_POST["email"]);
-    if($usuario !== null){
-      $errores["email"]="El usuario ya existe";
+    if($usuario == null){
+      $errores["email"]="Usuario no existe en nuestra base de datos";
     }else{
-    $avatar = armarAvatar($_FILES);
-    $registro = armarRegistro($_POST,$avatar);
-    guardar($registro);
-    header("location:index.php");
-    exit;
+        $registro = armarRegistroOlvide($_POST);
+          header("location: passExito.php");
+          exit;
     }
   }
 }
@@ -34,7 +32,7 @@ if ($_POST){
 
 <a class="_logo" href="index.php">BullSheet</a>
 
- <!--Sección del formulario de registro-->
+ <!--Sección del formulario para recuperar password-->
 <div class="overlay" id="overlay">
   <div class="popup" id="popup">
   <?php
@@ -48,23 +46,22 @@ if ($_POST){
     <?php endif;?>
 
     <!--<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times-circle"></i></a>-->
-    <h3>Registrate!</h3>
-    <h4>Y forma parte de nuestra comunidad!</h4>
+    <h3>Recupera tu password</h3>
+    <h4>Y volve a formar parte de nuestra comunidad!</h4>
     <form action="" method="POST" enctype= "multipart/form-data" >
       <div class="contenedor-inputs">
-        <input name="nombre" type="text" id="nombre"  value="<?=(isset($errores["nombre"]) )? "" : inputUsuario("nombre");?>" placeholder="Nombre">
-        <input name="apellido" type="text" id="apellido"  value="<?=(isset($errores["apellido"]) )? "" : inputUsuario("apellido");?>" placeholder="Apellido">
+
         <input name="email" type="text" id="email" value="<?=isset($errores["email"])? "":inputUsuario("email") ;?>" placeholder="Correo">
         <input name="password" type="password" id="password" value="" placeholder="Contraseña">
         <input name="repassword" type="password" id="repassword" value="" placeholder="Confirmar Contraseña">
-        <input  type="file" name="avatar" value=""/>
+
       </div>
       <input type="submit" name="registro" class="btn-submit" value="Enviar">
     </form>
   </div>
 </div>
 <!--Termina la Sección del formulario de registro-->
-  
+
 </body>
 <script src="popup.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

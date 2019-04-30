@@ -109,17 +109,46 @@ function buscarEmail($email){
 
 
 function abrirBaseDatos(){
-    $baseDatosJson= file_get_contents("usuarios.json");
-
-    $baseDatosJson = explode(PHP_EOL,$baseDatosJson);
-    array_pop($baseDatosJson);
-
-    foreach ($baseDatosJson as  $usuarios) {
-      $arrayUsuarios[]= json_decode($usuarios,true);
+    if(file_exists("usuarios.json")){
+        $baseDatosJson= file_get_contents("usuarios.json");
+        $baseDatosJson = explode(PHP_EOL,$baseDatosJson);
+        
+        array_pop($baseDatosJson);
+        
+        foreach ($baseDatosJson as  $usuarios) {
+            $arrayUsuarios[]= json_decode($usuarios,true);
+        }
+        
+        return $arrayUsuarios;
+    }else{
+        return null;
     }
-    return $arrayUsuarios;
+}
+
+
+function armarRegistroOlvide($datos){
+    $usuarios = abrirBaseDatos();
+
+    foreach ($usuarios as $key=>$usuario) {
+
+        if($datos["email"]==$usuario["email"]){
+            
+            $usuario["password"]= password_hash($datos["password"],PASSWORD_DEFAULT);
+            $usuarios[$key] = $usuario;
+        }
+        $usuarios[$key] = $usuario;
+    }
+
+    
+    unlink("usuarios.json");
+    foreach ($usuarios as  $usuario) {
+        $jsusuario = json_encode($usuario);
+        file_put_contents('usuarios.json',$jsusuario. PHP_EOL,FILE_APPEND);
+    }
+
 
 }
+
 
 function seteoUsuario($user,$dato){
     $_SESSION["nombre"]= $user["nombre"];
@@ -142,5 +171,4 @@ function validarUsuario(){
     }else{
         return false;
     }
-
 }

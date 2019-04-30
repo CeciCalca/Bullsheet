@@ -1,7 +1,7 @@
 <?php
 include_once("controladores/funciones.php");
 if($_POST){
-  
+
   $errores= validar($_POST,"login");
   if(count($errores)==0){
     $usuario = buscarEmail($_POST["email"]);
@@ -19,8 +19,8 @@ if($_POST){
           header("location: registro.php");
           exit;
         }
-      }      
-    }    
+      }
+    }
   }
 }
 ?>
@@ -41,7 +41,7 @@ if($_POST){
           <input name="recordar" type="checkbox" id="recordar" value="recordar">
           <label for="recordarme">Recordarme</label>
          </div>
-          <a href="">Olvide mi Contraseña</a>
+          <a href="olvide.php">Olvide mi Contraseña</a>
         </div>
         <br>
         <input type="submit" name="login" class="btn-submit-login" value="Login">
