@@ -1,20 +1,26 @@
 <?php
-include_once("controladores/funciones.php");
+include_once("autoload.php");
+
 if ($_POST){
-  $errores=validar($_POST,"registro");
+  $usuario = new Usuario($_POST["nombre"],$_POST["apellido"],$_POST["email"],$_POST["password"]);
+
+  $errores=$validar->validacionUsuario($usuario, $_POST["repassword"]);
   if(count($errores)==0){
+    $registroUsuario = $registro->armarRegistroUsuario($usuario);//Acá le falta agregar el avatar para armar el registro.
+    $json->guardar($registroUsuario);
+    redirect("login.php");
+
+    /* Esto falta pasar a OOP
     $usuario = buscarEmail($_POST["email"]);
     if($usuario !== null){
       $errores["email"]="El usuario ya existe";
     }else{
     $avatar = armarAvatar($_FILES);
-    $registro = armarRegistro($_POST,$avatar);
-    guardar($registro);
-    header("location:index.php");
-    exit;
+    */
+
     }
   }
-}
+
  ?>
 
 <!DOCTYPE html>
@@ -64,7 +70,7 @@ if ($_POST){
   </div>
 </div>
 <!--Termina la Sección del formulario de registro-->
-  
+
 </body>
 <script src="popup.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
