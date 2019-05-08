@@ -8,51 +8,12 @@ function inputUsuario($campo){
     }
 }
 
-function armarAvatar($imagen){
-    $nombre = $imagen["avatar"]["name"];
-    $ext = pathinfo($nombre,PATHINFO_EXTENSION);
-    $archivoOrigen = $imagen["avatar"]["tmp_name"];
-    $archivoDestino = dirname(__DIR__);
-    $archivoDestino = $archivoDestino."/imagenes/";
-    $avatar = uniqid();
-    $archivoDestino = $archivoDestino.$avatar;
-    $archivoDestino = $archivoDestino.".".$ext;
-    move_uploaded_file($archivoOrigen,$archivoDestino);
-    $avatar = $avatar.".".$ext;
-    return $avatar;
-}
 
 
 
-function buscarEmail($email){
-
-    $usuarios = abrirBaseDatos();
-
-    foreach ($usuarios as  $usuario) {
-        if($email === $usuario["email"]){
-            return $usuario;
-        }
-    }
-    return null;
-}
 
 
-function abrirBaseDatos(){
-    if(file_exists("usuarios.json")){
-        $baseDatosJson= file_get_contents("usuarios.json");
-        $baseDatosJson = explode(PHP_EOL,$baseDatosJson);
 
-        array_pop($baseDatosJson);
-
-        foreach ($baseDatosJson as  $usuarios) {
-            $arrayUsuarios[]= json_decode($usuarios,true);
-        }
-
-        return $arrayUsuarios;
-    }else{
-        return null;
-    }
-}
 
 
 function armarRegistroOlvide($datos){
