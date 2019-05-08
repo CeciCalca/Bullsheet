@@ -3,21 +3,17 @@ include_once("autoload.php");
 
 if ($_POST){
   $usuario = new Usuario($_POST["nombre"],$_POST["apellido"],$_POST["email"],$_POST["password"]);
-
   $errores=$validar->validacionUsuario($usuario, $_POST["repassword"]);
   if(count($errores)==0){
-    $registroUsuario = $registro->armarRegistroUsuario($usuario);//Acá le falta agregar el avatar para armar el registro.
-    $json->guardar($registroUsuario);
-    redirect("login.php");
-
-    /* Esto falta pasar a OOP
-    $usuario = buscarEmail($_POST["email"]);
-    if($usuario !== null){
+    $emailUsuario = $json->buscarEmail($usuario->getEmail());
+    if($emailUsuario !== null){
       $errores["email"]="El usuario ya existe";
     }else{
-    $avatar = armarAvatar($_FILES);
-    */
-
+    $registroUsuario = $registro->armarRegistroUsuario($usuario);//Acá le falta agregar el avatar para armar el registro.
+    $avatar = $registro->armarAvatar($_FILES);
+    $json->guardar($registroUsuario);
+    redirect("login.php");  
+     }
     }
   }
 

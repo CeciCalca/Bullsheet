@@ -9,6 +9,6 @@
 
   $validar = new Validador();
   $registro = new ArmarRegistro();
-  $json = new BaseJSON(usuarios.json);
+  $json = new BaseJSON("Usuarios.json");
 
  ?>
