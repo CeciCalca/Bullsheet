@@ -4,43 +4,31 @@ if($_POST){
   $usuario = new Usuario($_POST["email"],$_POST["password"]);
   $errores = $validar->validacionLogin($usuario);
   if(count($errores) == 0){
-    $emailUsuario = $json->buscarEmail($usuario->getEmail());
-  }if($emailUsuario !== null){
-    $errores["email"]="El usuario ya existe";
+    $usuarioEncontrado = $json->buscarEmail($usuario->getEmail());
+  }if($usuarioEncontrado == null){
+    $errores["email"]="El usuario no existe";
   }else{
-    if(Autenticador::verificarPassword($usuario->getPassword,$usuario["password"])!=true){
+    if(Autenticador::verificarPassword($usuario->getPassword(),$usuarioEncontrado["password"])!=true){
       $errores["password"]="Usuario o contraseña incorrectos";
     }else {
-      // code...
-    }
-
-
-/*
-  $errores= validar($_POST,"login");
-  if(count($errores)==0){
-    $usuario = buscarEmail($_POST["email"]);
-    if($usuario == null){
-      $errores["email"]="Usuario no existe";
-    }else{
-      if(password_verify($_POST["password"],$usuario["password"])===false){
-        $errores["password"]="Error en los datos verifique";
-      }else{
-        seteoUsuario($usuario,$_POST);
-        if(validarUsuario()){
-          header("location: perfil.php");
-          exit;
-        }else{
-          header("location: registro.php");
-          exit;
-        }
+      Autenticador::seteoSesion($usuarioEncontrado);
+      
+      if (isset($_POST["recordar"])) {
+        Autenticador::seteoCookie($usuarioEncontrado);
       }
     }
-  }
-}
-?>
-*/
+    if(Autenticador::validarUsuario()){
+      redirect("perfil.php");
+    }else{
+      redirect("registro.php");
+      }
+   }
+ }
 
-<!--Sección de LogIn-->
+?>
+
+
+<!-- Sección de LogIn-->
 
   <section id="login" class="_login">
     <div class="_contenedor-login" id="_contenedor-login">

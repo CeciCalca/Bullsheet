@@ -6,9 +6,12 @@
   include_once("clases/BaseDatos.php");
   include_once("clases/BaseJSON.php");
   include_once("clases/Encriptar.php");
+  include_once("clases/Autenticador.php");
+
 
   $validar = new Validador();
   $registro = new ArmarRegistro();
   $json = new BaseJSON("Usuarios.json");
+  Autenticador::iniciarSesion();
 
  ?>

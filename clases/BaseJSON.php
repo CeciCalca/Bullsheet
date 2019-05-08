@@ -30,18 +30,17 @@
         }
         return null;
     }
+  }
 
     public function abrirBaseDatos(){
-        if(file_exists("usuarios.json")){
-            $baseDatosJson= file_get_contents("usuarios.json");
+        if(file_exists($this->nombreArchivo)){
+            $baseDatosJson= file_get_contents($this->nombreArchivo);
             $baseDatosJson = explode(PHP_EOL,$baseDatosJson);
 
             array_pop($baseDatosJson);
-
             foreach ($baseDatosJson as  $usuarios) {
                 $arrayUsuarios[]= json_decode($usuarios,true);
             }
-
             return $arrayUsuarios;
         }else{
             return null;

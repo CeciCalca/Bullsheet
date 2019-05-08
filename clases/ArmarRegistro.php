@@ -1,11 +1,13 @@
 <?php
   class ArmarRegistro{
-    public function armarRegistroUsuario($usuario){
+    public function armarRegistroUsuario($usuario,$avatar){
       $registroUsuario = [
-        "nombre" => $usuario->getNombre,
-        "email" => $usuario->getEmail,
+        "nombre" => $usuario->getNombre(),
+        "apellido" => $usuario->getApellido(),
+        "email" => $usuario->getEmail(),
         "password" => Encriptar::hashPassword($usuario->getPassword()),
-        "perfil" => 1
+        "avatar" => $avatar,
+        "perfil" => $usuario->getPerfil()
       ];
     return $registroUsuario;
   }

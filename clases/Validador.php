@@ -41,7 +41,19 @@
     }
 
     public function validacionLogin($usuario){
-      //ESTO FALTA
+        $errores=array();
+        $email = trim($usuario->getEmail());
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $errores["email"]="Email invalido!";
+        }
+
+        $password= trim($usuario->getPassword());
+
+        if(empty($password)){
+            $errores["password"]= "El campo password no puede quedar en blanco";
+        }
+
+        return $errores;
     }
 
 

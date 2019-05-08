@@ -9,8 +9,8 @@ if ($_POST){
     if($emailUsuario !== null){
       $errores["email"]="El usuario ya existe";
     }else{
-    $registroUsuario = $registro->armarRegistroUsuario($usuario);//Acá le falta agregar el avatar para armar el registro.
     $avatar = $registro->armarAvatar($_FILES);
+    $registroUsuario = $registro->armarRegistroUsuario($usuario,$avatar);//Acá le falta agregar el avatar para armar el registro.
     $json->guardar($registroUsuario);
     redirect("login.php");
      }

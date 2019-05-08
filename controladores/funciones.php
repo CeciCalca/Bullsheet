@@ -2,12 +2,6 @@
 session_start();
 
 
-function inputUsuario($campo){
-    if(isset($_POST[$campo])){
-        return $_POST[$campo];
-    }
-}
-
 
 function armarRegistroOlvide($datos){
     $usuarios = abrirBaseDatos();
@@ -30,28 +24,4 @@ function armarRegistroOlvide($datos){
     }
 
 
-}
-
-
-function seteoUsuario($user,$dato){
-    $_SESSION["nombre"]= $user["nombre"];
-    $_SESSION["apellido"]= $user["apellido"];
-    $_SESSION["email"] = $user["email"];
-    $_SESSION["perfil"]= $user["perfil"];
-    $_SESSION["avatar"]= $user["avatar"];
-    if(isset($dato["recordar"]) ){
-        setcookie("email",$dato["email"],time()+30);
-        setcookie("password",$dato["password"],time()+30);
-    }
-}
-
-function validarUsuario(){
-    if($_SESSION["email"]){
-        return true;
-    }elseif ($_COOKIE["email"]) {
-        $_SESSION["email"]=$_COOKIE["email"];
-        return true;
-    }else{
-        return false;
-    }
 }
