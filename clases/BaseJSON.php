@@ -21,7 +21,8 @@
     }
 
     public function buscarEmail($email){
-        $usuarios = abrirBaseDatos();
+        $usuarios = $this->abrirBaseDatos();
+        if($usuarios!==null){
         foreach ($usuarios as $usuario) {
             if($email === $usuario["email"]){
                 return $usuario;
@@ -49,13 +50,13 @@
 
     public function leer(){
     }
-    
+
     public function borrar(){
     }
-    
+
     public function actualizar(){
     }
-    
+
 
 
   }

@@ -1,7 +1,21 @@
 <?php
-include_once("controladores/funciones.php");
+include_once("autoload.php");
 if($_POST){
+  $usuario = new Usuario($_POST["email"],$_POST["password"]);
+  $errores = $validar->validacionLogin($usuario);
+  if(count($errores) == 0){
+    $emailUsuario = $json->buscarEmail($usuario->getEmail());
+  }if($emailUsuario !== null){
+    $errores["email"]="El usuario ya existe";
+  }else{
+    if(Autenticador::verificarPassword($usuario->getPassword,$usuario["password"])!=true){
+      $errores["password"]="Usuario o contraseña incorrectos";
+    }else {
+      // code...
+    }
 
+
+/*
   $errores= validar($_POST,"login");
   if(count($errores)==0){
     $usuario = buscarEmail($_POST["email"]);
@@ -24,6 +38,7 @@ if($_POST){
   }
 }
 ?>
+*/
 
 <!--Sección de LogIn-->
 

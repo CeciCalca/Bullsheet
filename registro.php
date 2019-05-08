@@ -2,7 +2,7 @@
 include_once("autoload.php");
 
 if ($_POST){
-  $usuario = new Usuario($_POST["nombre"],$_POST["apellido"],$_POST["email"],$_POST["password"]);
+  $usuario = new Usuario($_POST["email"],$_POST["password"],$_POST["repassword"],$_POST["nombre"],$_POST["apellido"],$_FILES);
   $errores=$validar->validacionUsuario($usuario, $_POST["repassword"]);
   if(count($errores)==0){
     $emailUsuario = $json->buscarEmail($usuario->getEmail());
@@ -12,7 +12,7 @@ if ($_POST){
     $registroUsuario = $registro->armarRegistroUsuario($usuario);//Acá le falta agregar el avatar para armar el registro.
     $avatar = $registro->armarAvatar($_FILES);
     $json->guardar($registroUsuario);
-    redirect("login.php");  
+    redirect("login.php");
      }
     }
   }

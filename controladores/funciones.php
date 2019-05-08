@@ -9,13 +9,6 @@ function inputUsuario($campo){
 }
 
 
-
-
-
-
-
-
-
 function armarRegistroOlvide($datos){
     $usuarios = abrirBaseDatos();
 

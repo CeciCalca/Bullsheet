@@ -40,6 +40,11 @@
         return $errores;
     }
 
+    public function validacionLogin($usuario){
+      //ESTO FALTA
+    }
+
+
     public function validacionAvatar($avatar){
 
     }
