@@ -5,7 +5,7 @@ if($_POST){
   $errores = $validar->validacionLogin($usuario);
   if(count($errores) == 0){
     $usuarioEncontrado = $json->buscarEmail($usuario->getEmail());
-    }
+    
     if($usuarioEncontrado == null){
     $errores["email"]="El usuario no existe";
   }else{
@@ -17,13 +17,15 @@ if($_POST){
       if (isset($_POST["recordar"])) {
         Autenticador::seteoCookie($usuarioEncontrado);
       }
-    }
+    
     if(Autenticador::validarUsuario()){
       redirect("perfil.php");
     }else{
       redirect("registro.php");
       }
+    }
    }
+  }
  }
 
 ?>
