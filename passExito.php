@@ -25,7 +25,7 @@
 
     <h4>Ya puedes loguearte con tu nueva contraseña!</h4>
     <br>
-    <button class="btn-submit"><a class=alogin href="index.php">Login</a></button>
+    <button class="btn-submit"><a class=alogin href="index.php#login">Login</a></button>
   </div>
 
   

@@ -1,15 +1,17 @@
 <?php
-include_once("controladores/funciones.php");
+include_once("autoload.php");
 if($_POST){
-  $errores=validar($_POST,"olvide");
+  $usuario = new Usuario($_POST["email"],$_POST["password"],$_POST["repassword"]);
+  $errores=$validar->validacionOlvide($usuario);
+  
   if(count($errores)==0){
-    $usuario = buscarEmail($_POST["email"]);
-    if($usuario == null){
+    $usuarioEncontrado = $json->buscarEmail($usuario->getEmail());
+    if($usuarioEncontrado == null){
       $errores["email"]="Usuario no existe en nuestra base de datos";
     }else{
-        $registro = armarRegistroOlvide($_POST);
-          header("location: passExito.php");
-          exit;
+        $registro=$json-> jsonRegistroOlvide($usuario->getEmail(),$usuario->getPassword());
+          redirect("passExito.php");
+          
     }
   }
 }

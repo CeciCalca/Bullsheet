@@ -25,8 +25,7 @@
       $avatar = $avatar.".".$ext;
       return $avatar;
   }
-  public function armarRegistroOlvide(){
-
+  
   }
- }
+ 
 ?>

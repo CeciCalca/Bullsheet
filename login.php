@@ -5,7 +5,8 @@ if($_POST){
   $errores = $validar->validacionLogin($usuario);
   if(count($errores) == 0){
     $usuarioEncontrado = $json->buscarEmail($usuario->getEmail());
-  }if($usuarioEncontrado == null){
+    }
+    if($usuarioEncontrado == null){
     $errores["email"]="El usuario no existe";
   }else{
     if(Autenticador::verificarPassword($usuario->getPassword(),$usuarioEncontrado["password"])!=true){
@@ -32,6 +33,15 @@ if($_POST){
 
   <section id="login" class="_login">
     <div class="_contenedor-login" id="_contenedor-login">
+    <?php
+        if(isset($errores)):?>
+          <ul class="alert alert-danger">
+            <?php
+            foreach ($errores as $key => $value) :?>
+              <li> <?=$value;?> </li>
+              <?php endforeach;?>
+          </ul>
+        <?php endif;?>
 
       <h3>Login</h3>
       <form action="" method="POST">
@@ -50,15 +60,7 @@ if($_POST){
         <input type="submit" name="login" class="btn-submit-login" value="Login">
         <p>Si no tenés cuenta registrate <a id="abrir-popup"class="linkpopup abrir-Popup" href="registro.php"> Acá!</a></p>
       </form>
-      <?php
-        if(isset($errores)):?>
-          <ul class="alert alert-danger">
-            <?php
-            foreach ($errores as $key => $value) :?>
-              <li> <?=$value;?> </li>
-              <?php endforeach;?>
-          </ul>
-        <?php endif;?>
+      
     </div>
   </section>
 

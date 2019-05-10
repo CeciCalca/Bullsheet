@@ -19,9 +19,8 @@
         $_SESSION["avatar"]= $usuario["avatar"];
       }
       static public function seteoCookie($usuario){
-        dd($usuario);
-        setcookie("email",$usuario["email"],time()+30);
-        setcookie("password",$usuario["password"],time()+30);
+        setcookie("email",$usuario["email"],time()+3600);
+        setcookie("password",$usuario["password"],time()+3600);
       }
 
 

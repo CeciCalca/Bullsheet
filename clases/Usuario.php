@@ -9,11 +9,11 @@
     private $perfil;
 
     public function __construct($email,$password,$repassword=null,$nombre=null,$apellido=null, $avatar=null, $perfil=1){
-      $this->nombre=$nombre;
-      $this->apellido=$apellido;
-      $this->email=$email;
+      $this->email=$email;      
       $this->password=$password;
       $this->repassword=$repassword;
+      $this->nombre=$nombre;
+      $this->apellido=$apellido;      
       $this->avatar=$avatar;
       $this->perfil=$perfil;
     }
@@ -40,6 +40,12 @@
     }
     public function setPassword($password){
       $this->password=$password;
+    }
+    public function getRepassword(){
+      return $this->repassword;
+    }
+    public function setRepassword($repassword){
+      $this->repassword=$repassword;
     }
     public function getAvatar(){
       return $this->avatar;

@@ -11,7 +11,7 @@
       return $this->nombreArchivo;
     }
 
-    public function setNombreArchivo(){
+    public function setNombreArchivo($nombreArchivo){
       $this->nombreArchivo=$nombreArchivo;
     }
 
@@ -22,14 +22,14 @@
 
     public function buscarEmail($email){
         $usuarios = $this->abrirBaseDatos();
-        if($usuarios!==null){
+        if($usuarios !== null){
         foreach ($usuarios as $usuario) {
             if($email === $usuario["email"]){
                 return $usuario;
             }
-        }
-        return null;
+        }        
     }
+    return null;
   }
 
     public function abrirBaseDatos(){
@@ -45,6 +45,24 @@
         }else{
             return null;
         }
+    }
+    public function jsonRegistroOlvide($email,$password){
+      $usuarios = $this->abrirBaseDatos();
+      
+      foreach ($usuarios as $key=>$usuario) {
+          
+          if($email==$usuario["email"]){
+            $usuario["password"]= Encriptar::hashPassword($password);
+            $usuarios[$key] = $usuario;    
+          }          
+          $usuarios[$key] = $usuario;    
+      }      
+      unlink($this->nombreArchivo);
+      
+      foreach ($usuarios as  $usuario) {
+          $jsusuario = json_encode($usuario);
+          file_put_contents($this->nombreArchivo,$jsusuario. PHP_EOL,FILE_APPEND);
+      }
     }
 
     public function leer(){

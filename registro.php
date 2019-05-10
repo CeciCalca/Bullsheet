@@ -10,9 +10,9 @@ if ($_POST){
       $errores["email"]="El usuario ya existe";
     }else{
     $avatar = $registro->armarAvatar($_FILES);
-    $registroUsuario = $registro->armarRegistroUsuario($usuario,$avatar);//Acá le falta agregar el avatar para armar el registro.
+    $registroUsuario = $registro->armarRegistroUsuario($usuario,$avatar);
     $json->guardar($registroUsuario);
-    redirect("login.php");
+    redirect("index.php#login");
      }
     }
   }
@@ -34,7 +34,7 @@ if ($_POST){
 </head>
 <body>
 
-<a class="_logo" href="index.php">BullSheet</a>
+<a class="_logoregistro" href="index.php">BullSheet</a>
 
  <!--Sección del formulario de registro-->
 <div class="overlay" id="overlay">

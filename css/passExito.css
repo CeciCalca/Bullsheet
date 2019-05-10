@@ -46,6 +46,7 @@ body{
 	color: #fff;
 	background: rgb(105, 105, 105);
 	border-radius: 3px;
+	
 	font-family: 'Montserrat', sans-serif;
 	font-size: 16px;
 	cursor: pointer;
@@ -69,7 +70,17 @@ body{
   ._logopass:hover{
 	text-decoration:none;
 	color:  rgb(105, 105, 105);
-	}
+}
+.alogin{
+	
+	text-decoration: none;
+	background-color: #fff;
+	padding: 10px;
+	border-radius: 3px;
+	background-color: rgb(105, 105, 105);
+}
+
+
 	
 
   

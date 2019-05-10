@@ -98,11 +98,10 @@
 .popup form .btn-submit:hover {
 	background:linear-gradient(to right, #051937, #39235a, #7b1c69, #bb005f, #eb123d);
 }
-._logo{
+._logoregistro{
 	font-family: 'Playball', cursive;
 	color: #ffffff;
-	font-size: 2em;
-	position: fixed;
+	font-size: 2em;	
 	margin-top: 10px;	
 	margin-left: 15px;
 	z-index: 1000;

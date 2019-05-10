@@ -51,6 +51,8 @@
 
         if(empty($password)){
             $errores["password"]= "El campo password no puede quedar en blanco";
+        }elseif (strlen($password)<6) {
+            $errores["password"]="La contraseña debe tener al menos 6 caracteres";
         }
 
         return $errores;
@@ -58,11 +60,46 @@
 
 
     public function validacionAvatar($avatar){
-
+        if($usuario->getAvatar()!=null){
+            if ($_FILES["avatar"]["error"]!=0){
+                $errores["avatar"]="Debe subir una Imagen";                
+            }else{
+                $nombre = $_FILES["avatar"]["name"];
+                $ext = pathinfo ($nombre, PATHINFO_EXTENSION);
+                if ($ext !="png" && $ext != "jpg"){
+                    $errores["avatar"]="La imagen debe ser un archivo PNG o JPG";
+                }
+            }
+        }
+        return $errores;
     }
 
-    public function validacionOlvidePassword(){
+    public function validacionOlvide($usuario){
+        
+        $errores=array();
+        
+        $email = trim($usuario->getEmail());
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $errores["email"]="Email invalido !!!!!";
+        }
+        
+        $password= trim($usuario->getPassword());
+        
+        $repassword = trim($usuario->getRepassword());
+        
 
+        if(empty($password)){
+            $errores["password"]= "El campo Password no puede quedar vacio.";
+            
+        }elseif (strlen($password)<6) {
+            $errores["password"]="La contraseña debe tener al menos 6 caracteres";
+        }
+        
+        if(empty($repassword)){
+            $errores["repassword"]= "El campo confirmar contraseña no puede quedar vacio";
+        }
+        
+        return $errores;
     }
 
 
