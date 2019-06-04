@@ -3,7 +3,7 @@ include_once("autoload.php");
 if($_POST){
   $usuario = new Usuario($_POST["email"],$_POST["password"],$_POST["repassword"]);
   $errores=$validar->validacionOlvide($usuario);
-  
+
   if(count($errores)==0){
     $usuarioEncontrado = $json->buscarEmail($usuario->getEmail());
     if($usuarioEncontrado == null){
@@ -11,7 +11,7 @@ if($_POST){
     }else{
         $registro=$json-> jsonRegistroOlvide($usuario->getEmail(),$usuario->getPassword());
           redirect("passExito.php");
-          
+
     }
   }
 }

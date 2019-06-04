@@ -4,8 +4,8 @@ if($_POST){
   $usuario = new Usuario($_POST["email"],$_POST["password"]);
   $errores = $validar->validacionLogin($usuario);
   if(count($errores) == 0){
-    $usuarioEncontrado = $json->buscarEmail($usuario->getEmail());
-    
+    $usuarioEncontrado = BaseMYSQL::buscarPorEmail($usuario->getEmail());
+
     if($usuarioEncontrado == null){
     $errores["email"]="El usuario no existe";
   }else{
@@ -13,11 +13,11 @@ if($_POST){
       $errores["password"]="Usuario o contraseña incorrectos";
     }else {
       Autenticador::seteoSesion($usuarioEncontrado);
-      
+
       if (isset($_POST["recordar"])) {
         Autenticador::seteoCookie($usuarioEncontrado);
       }
-    
+
     if(Autenticador::validarUsuario()){
       redirect("perfil.php");
     }else{
@@ -62,7 +62,7 @@ if($_POST){
         <input type="submit" name="login" class="btn-submit-login" value="Login">
         <p>Si no tenés cuenta registrate <a id="abrir-popup"class="linkpopup abrir-Popup" href="registro.php"> Acá!</a></p>
       </form>
-      
+
     </div>
   </section>
 

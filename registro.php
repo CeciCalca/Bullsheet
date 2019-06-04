@@ -5,13 +5,14 @@ if ($_POST){
   $usuario = new Usuario($_POST["email"],$_POST["password"],$_POST["repassword"],$_POST["nombre"],$_POST["apellido"],$_FILES);
   $errores=$validar->validacionUsuario($usuario, $_POST["repassword"]);
   if(count($errores)==0){
-    $emailUsuario = $json->buscarEmail($usuario->getEmail());
-    if($emailUsuario !== null){
+    $usuario= BaseMYSQL::buscarPorEmail($usuario->getEmail());
+    if($usuario !== null){
       $errores["email"]="El usuario ya existe";
     }else{
     $avatar = $registro->armarAvatar($_FILES);
-    $registroUsuario = $registro->armarRegistroUsuario($usuario,$avatar);
-    $json->guardar($registroUsuario);
+    guardarUsuario($pdo,$usuario,$tabla,$avatar);
+    // $registroUsuario = $registro->armarRegistroUsuario($usuario,$avatar);
+    // $json->guardar($registroUsuario);
     redirect("index.php#login");
      }
     }
