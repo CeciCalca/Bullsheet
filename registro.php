@@ -3,14 +3,17 @@ include_once("autoload.php");
 
 if ($_POST){
   $usuario = new Usuario($_POST["email"],$_POST["password"],$_POST["repassword"],$_POST["nombre"],$_POST["apellido"],$_FILES);
+
   $errores=$validar->validacionUsuario($usuario, $_POST["repassword"]);
+
   if(count($errores)==0){
-    $usuario= BaseMYSQL::buscarPorEmail($usuario->getEmail());
-    if($usuario !== null){
+
+    $ususarioEncontrado= BaseSql::buscarUsuarioEmial($pdo,'users',$usuario->getEmail());
+    if($ususarioEncontrado !== false){
       $errores["email"]="El usuario ya existe";
     }else{
     $avatar = $registro->armarAvatar($_FILES);
-    guardarUsuario($pdo,$usuario,$tabla,$avatar);
+    BaseSql::guardarUsuario($pdo,$usuario,'users',$avatar);
     // $registroUsuario = $registro->armarRegistroUsuario($usuario,$avatar);
     // $json->guardar($registroUsuario);
     redirect("index.php#login");

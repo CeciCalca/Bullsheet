@@ -12,10 +12,11 @@
     }
 
     static public function seteoSesion($usuario){
-        $_SESSION["nombre"]= $usuario["nombre"];
-        $_SESSION["apellido"]= $usuario["apellido"];
+    
+        $_SESSION["nombre"]= $usuario["first_name"];
+        $_SESSION["apellido"]= $usuario["last_name"];
         $_SESSION["email"] = $usuario["email"];
-        $_SESSION["perfil"]= $usuario["perfil"];
+        $_SESSION["perfil"]= $usuario["profile_id"];
         $_SESSION["avatar"]= $usuario["avatar"];
       }
       static public function seteoCookie($usuario){

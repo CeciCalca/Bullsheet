@@ -4,7 +4,7 @@ if($_POST){
   $usuario = new Usuario($_POST["email"],$_POST["password"]);
   $errores = $validar->validacionLogin($usuario);
   if(count($errores) == 0){
-    $usuarioEncontrado = BaseMYSQL::buscarPorEmail($usuario->getEmail());
+    $usuarioEncontrado = BaseSql::buscarUsuarioEmial($pdo,'users',$usuario->getEmail());
 
     if($usuarioEncontrado == null){
     $errores["email"]="El usuario no existe";

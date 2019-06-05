@@ -23,7 +23,8 @@ class BaseSql extends BaseDatos{
     }
 
     static public function guardarUsuario($pdo,$usuario,$tabla,$avatar){
-          $sql = "insert into $tabla (name,email,password,avatar,role) values (:name,:email,:password,:avatar,:role )";
+
+          $sql = "insert into $tabla (first_name,email,password,avatar,profile_id) values (:name,:email,:password,:avatar,:role )";
           $query = $pdo->prepare($sql);
           $query->bindValue(':name',$usuario->getnombre());
           $query->bindValue(':email',$usuario->getEmail());
